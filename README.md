@@ -32,4 +32,4 @@ Cron it:
     # Run Twitter bots everyday at 13:00
     0 13 * * * /bin/bash -c 'cd /path/to/botdir && python main.py &>> cron.log'
     # Every three hours
-    0 */2 * * *  /bin/bash -c 'cd /path/to/botdir && python main.py &>> cron.log'
+    0 */3 * * *  /bin/bash -c 'cd /path/to/botdir && python main.py &>> cron.log'
