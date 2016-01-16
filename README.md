@@ -15,14 +15,9 @@ Create a JSON file of user data and put into `data/botname1`:
         "access_token_secret": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-Define your bots in `twitter_bots.conf`:
+Define your bots in `bots.conf`:
 
     {
-      "logging": {
-        "logfile": "logs/log",
-        "max_bytes": 1000000,
-        "backup_count": 5
-      },
       "bot_usernames": [
         "botname1",
         "botname2",
@@ -35,4 +30,4 @@ Add your quotes to `data/quotes.json`
 Cron it:
 
     # Run Twitter bots everyday at 13:00
-    0 13 * * * /bin/bash -c 'cd /path/to/botdir && ./tweet_bots.py &>> cron.log'
+    0 13 * * * /bin/bash -c 'cd /path/to/botdir && ./main.py &>> cron.log'
