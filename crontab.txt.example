@@ -1,0 +1,1 @@
+* */3 * * * /bin/bash -c 'cd /path/to/twitter_bot && python main.py &>> log/cron.log'

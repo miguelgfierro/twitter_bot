@@ -2,7 +2,7 @@ A twitter bot that automatically tweets random quotes
 
 Install twitter dependencies:
 
-    $ sudo pip install twitter
+    $ sudo pip install -r requirements.txt
 
 Create a new app to get the credentials at [Twitter](https://apps.twitter.com/)
 
@@ -27,9 +27,18 @@ Define your bots in `bots.conf`:
 
 Add your quotes to `data/quotes.json`
 
-Cron it:
+Cron it. Create a file called `crontab.txt` and fill it with something like this:
 
     # Run Twitter bots everyday at 13:00
-    0 13 * * * /bin/bash -c 'cd /path/to/botdir && python main.py &>> cron.log'
+    0 13 * * * /bin/bash -c 'cd /path/to/twitter_bot && python main.py &>> log/cron.log'
     # Every three hours
-    0 */3 * * *  /bin/bash -c 'cd /path/to/botdir && python main.py &>> cron.log'
+    0 */3 * * *  /bin/bash -c 'cd /path/to/twitter_bot && python main.py &>> log/cron.log'
+    
+Finally to make a cron task:
+    
+    $ crontab crontab.txt
+    
+    
+Disclaimer:
+
+I hold no liability for what you do with this bot or what happens to you by using this bot. Abusing this bot can get you banned from Twitter, so make sure to read up on [proper usage](https://support.twitter.com/articles/76915-automation-rules-and-best-practices) of the Twitter API.
