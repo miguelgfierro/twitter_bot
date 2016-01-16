@@ -1,4 +1,4 @@
-# Setup
+A twitter bot that automatically tweets random quotes
 
 Install twitter dependencies:
 
