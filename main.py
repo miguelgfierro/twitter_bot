@@ -6,11 +6,12 @@ def load_conf(filename):
     with open(filename) as f:
         return json.load(f)
 
-def tweet_quote():
+def main():
     conf = load_conf('data/bots.conf')
     for bot_username in conf['bot_usernames']:
         try:
             bot = TwitterBot(bot_username)
+
             tweet = bot.tweet_random_quote()
             if tweet:
                 msg = '%s tweeted %s' % (bot_username, tweet)
@@ -19,9 +20,11 @@ def tweet_quote():
                 msg = '%s failed to tweet' % bot_username
                 print msg
 
+            result = bot.retweet_keyword_home_timeline()
+
         except Exception as e:
-            error_msg = "%s ERROR + %s" % (bot_username, str(e))
+            error_msg = "%s ERROR: %s" % (bot_username, str(e))
             print error_msg
 
 if __name__ == "__main__":
-    tweet_quote()
+    main()

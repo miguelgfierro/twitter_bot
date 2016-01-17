@@ -2,6 +2,7 @@ A twitter bot that automatically tweets random quotes
 
 Install twitter dependencies:
 
+    $ sudo apt-get install libffi-dev libssl-dev
     $ sudo pip install -r requirements.txt
 
 Create a new app to get the credentials at [Twitter](https://apps.twitter.com/)

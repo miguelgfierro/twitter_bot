@@ -2,5 +2,9 @@
         "consumer_key": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
         "consumer_secret": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
         "access_token": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-        "access_token_secret": "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+        "access_token_secret": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "retweet_keywords":[
+            "keyword1",
+            "keyword2"
+        ]
     }
