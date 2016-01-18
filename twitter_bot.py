@@ -19,8 +19,9 @@ class TwitterBot:
 
     def tweet_random_quote(self):
         trimmed_quote = self.random_quote()[:140]
-        print 'quote to post: ', trimmed_quote
-        result = self.api.update_status(trimmed_quote)
+        quote = trimmed_quote.encode('ascii', 'replace')
+        print 'quote to post: ', quote
+        result = self.api.update_status(quote)
         return result
 
     def random_quote(self):
@@ -30,15 +31,13 @@ class TwitterBot:
         statuses = self.api.home_timeline()
         print statuses
         for s in statuses:
-            text = s.text
-            print text
             for keyword in self.retweet_keywords:
-                if keyword in text.lower():
-                    print 'keyword found: ',keyword
-                    print 'status:',s
+                if keyword in s.text.lower():
+                    print 'Keyword found: ',keyword
+                    print 'Status:',s
                     print 'id=',s.id
                     resp = self.api.retweet(int(s.id))
-                    print 'resp=',resp
+                    print 'Resp retweet=',resp
 
 
         return None
