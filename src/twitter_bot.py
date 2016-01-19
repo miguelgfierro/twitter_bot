@@ -5,10 +5,10 @@ from random import choice
 class TwitterBot:
 
     def __init__(self, name):
-        botfile = open('data/' + name, 'rb')
+        botfile = open('../data/' + name, 'rb')
         self.data = json.load(botfile)
         botfile.close()
-        quote_file = open('data/quotes.json','rb')
+        quote_file = open('../data/quotes.json','rb')
         self.quotes_data = json.load(quote_file)
         quote_file.close()
         self.quotes = self.quotes_data['quotes']
@@ -29,15 +29,14 @@ class TwitterBot:
 
     def retweet_keyword_home_timeline(self):
         statuses = self.api.home_timeline()
-        print statuses
         for s in statuses:
             for keyword in self.retweet_keywords:
                 if keyword in s.text.lower():
                     print 'Keyword found: ',keyword
-                    print 'Status:',s
+                    print 'Status:',s.text
                     print 'id=',s.id
                     resp = self.api.retweet(int(s.id))
-                    print 'Resp retweet=',resp
+                    print 'Resp retweet=',resp.text
 
 
         return None

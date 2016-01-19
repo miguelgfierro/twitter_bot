@@ -1,5 +1,6 @@
-from twitter_bot import TwitterBot
 import json
+
+from twitter_bot import TwitterBot
 
 
 def load_conf(filename):
@@ -7,14 +8,17 @@ def load_conf(filename):
         return json.load(f)
 
 def main():
-    conf = load_conf('data/bots.conf')
+    import os
+    print(os.getcwd())
+    conf_file = '../data/bots.conf'
+    conf = load_conf(conf_file)
     for bot_username in conf['bot_usernames']:
         try:
             bot = TwitterBot(bot_username)
 
             tweet = bot.tweet_random_quote()
             if tweet:
-                msg = '%s tweeted %s' % (bot_username, tweet)
+                msg = '%s tweeted %s' % (bot_username, tweet.text)
                 print msg
             else:
                 msg = '%s failed to tweet' % bot_username
