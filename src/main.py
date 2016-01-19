@@ -8,8 +8,6 @@ def load_conf(filename):
         return json.load(f)
 
 def main():
-    import os
-    print(os.getcwd())
     conf_file = '../data/bots.conf'
     conf = load_conf(conf_file)
     for bot_username in conf['bot_usernames']:
