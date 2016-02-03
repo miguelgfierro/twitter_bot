@@ -16,7 +16,7 @@ def main():
 
             tweet = bot.tweet_random_quote()
             if tweet:
-                msg = '%s tweeted %s' % (bot_username, tweet.text)
+                msg = '%s tweeted: %s' % (bot_username, tweet.text)
                 print msg
             else:
                 msg = '%s failed to tweet' % bot_username

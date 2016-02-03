@@ -31,9 +31,9 @@ Add your quotes to `data/quotes.json`
 Cron it. Create a file called `crontab.txt` and fill it with something like this:
 
     # Run Twitter bots everyday at 13:00
-    0 13 * * * /bin/bash -c 'cd /path/to/twitter_bot && python src/main.py &>> log/cron.log'
+    0 13 * * * /bin/bash -c 'cd /path/to/twitter_bot/src && python main.py &>> ../log/cron.log'
     # Or every three hours
-    0 */3 * * *  /bin/bash -c 'cd /path/to/twitter_bot && python src/main.py &>> log/cron.log'
+    0 */3 * * *  /bin/bash -c 'cd /path/to/twitter_bot/src && python main.py &>> ../log/cron.log'
     
 Finally to make a cron task:
     
